@@ -14,7 +14,7 @@ if(args.length === 0) {
 	const name = args[0]
 	try {
 		await git().silent(false)	.clone("https://github.com/thoughtsunificator/domodel-skeleton", name)
-		const packagePath = path.join(name, 'package.json')
+		const packagePath = path.resolve(__dirname, name, 'package.json')
 		const data = fs.readFileSync(packagePath)
 		let { devDependencies, dependencies, scripts } = JSON.parse(data);
 		fs.writeFileSync(packagePath, JSON.stringify({ name, devDependencies, dependencies, scripts }, null, "\t"));
