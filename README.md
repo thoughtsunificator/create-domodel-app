@@ -1,6 +1,6 @@
 # create-domodel-app
 
-Scaffold your domodel application in a single command.
+Scaffold your domodel application.
 
 # Prerequisites
 
