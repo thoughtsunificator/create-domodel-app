@@ -1,6 +1,5 @@
 #! /usr/bin/env node
 
-import https from 'https';
 import fs from 'fs';
 import path from 'path';
 import git from 'simple-git';
@@ -17,9 +16,9 @@ if(args.length === 0) {
 		const projectPath = path.resolve(process.cwd(), name)
 		const packagePath = path.resolve(projectPath, 'package.json')
 		const data = fs.readFileSync(packagePath)
-		let { devDependencies, dependencies, scripts } = JSON.parse(data);
+		let { devDependencies, dependencies, scripts, type } = JSON.parse(data);
 		fs.rmSync(path.resolve(projectPath, ".git"), { recursive: true })
-		fs.writeFileSync(packagePath, JSON.stringify({ name, devDependencies, dependencies, scripts }, null, "\t"));
+		fs.writeFileSync(packagePath, JSON.stringify({ name, type, devDependencies, dependencies, scripts }, null, "\t"));
 		execSync(`cd ${projectPath} && npm install`, {stdio: 'inherit'})
 		console.log("\n\u001b[32mYour domodel application is now ready. Happy codding!\u001b[0m")
 	} catch(ex) {
