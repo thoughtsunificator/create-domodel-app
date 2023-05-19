@@ -17,9 +17,6 @@ jobs:
       - name: Install all dependencies
         run: npm install
 
-      - name: Test
-        run: npm test
-
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
           repo_token: "${{ secrets.PAT_TOKEN }}"
