@@ -1,6 +1,6 @@
 {
 	"name": "create-domodel-app",
-	"version": "1.0.7",
+	"version": "1.0.8",
 	"bin": {
 		"create-domodel-app": "bin/create-domodel-app.js"
 	},
